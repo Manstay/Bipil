@@ -14,13 +14,13 @@
 
         <script type="text/javascript">
             
-            Wtf.onReady(function(){
+            Ext.onReady(function(){
                 
                    
                 function update(btnc)
                 {
                
-                    this.rollno1=new Wtf.form.TextField({
+                    this.rollno1=new Ext.form.TextField({
                 
                         fieldLabel: '<b><h1 align =center>Roll No</h1></b>',
                         labelSeparator: '',
@@ -29,19 +29,19 @@
                         allowBlank : false
             
                     });          
-                    this.marathi1=new Wtf.form.TextField({
+                    this.marathi1=new Ext.form.TextField({
                         fieldLabel: '<b><h1 align =center>Marathi</h1></b>',
                         labelSeparator: '',
                         allowBlank : false
            
                     });
-                    this.hindi1=new Wtf.form.TextField({
+                    this.hindi1=new Ext.form.TextField({
                         fieldLabel: '<b><h1 align =center>Hindi</h1></b>',
                         labelSeparator: '',
                         allowBlank : false
            
                     });
-                    this.english1=new Wtf.form.TextField({
+                    this.english1=new Ext.form.TextField({
                         fieldLabel: '<b><h1 align =center>English</h1></b>',
                         labelSeparator: '',
                         allowBlank : false
@@ -49,10 +49,10 @@
                     });
                
                
-                    this.win1=new Wtf.Window({
+                    this.win1=new Ext.Window({
                         layout:'form',
                         title:'Update details for selected',
-                        items:[  new Wtf.form.FormPanel({
+                        items:[  new Ext.form.FormPanel({
                                 //  scope : this,
              
                                 //  renderTo: this,
@@ -71,7 +71,7 @@
                                             if(btnc=='updt1')
                                             {
                                                 var select= grid1.getSelectionModel().getSelected();  
-                                                Wtf.Ajax.request({///used for Updating grid one the selected record with given id fro record
+                                                Ext.Ajax.request({///used for Updating grid one the selected record with given id fro record
                                                     url: 'process1.jsp?command=5',
                                                     params: { 
                                                         "t":select.get('RollNo'),
@@ -83,7 +83,7 @@
                                                     },
                                                     success:function()
                                                     {
-                                                        Wtf.Msg.alert('Status', 'Updated Successfully', function(btn, text){
+                                                        Ext.Msg.alert('Status', 'Updated Successfully', function(btn, text){
                                                             if (btn == 'ok'){
                                             
                                                                 this.grid1.store.load();
@@ -96,7 +96,7 @@
                                                     },
                                                     failure:function()
                                                     {
-                                                        Wtf.Msg.alert('failure');
+                                                        Ext.Msg.alert('failure');
                                                     } 
                
                                                 });
@@ -108,14 +108,14 @@
                                                 select.set('English',this.english.getValue());
                                                 select.endEdit();
                                                 this.close();
-                                                Wtf.Msg.alert('Record Updated');
+                                                Ext.Msg.alert('Record Updated');
                                                 this.hide();
                                             }
                      
                                             if(btnc=='updt2')
                                             {
                                                 var select= grid2.getSelectionModel().getSelected();  
-                                                Wtf.Ajax.request({///used for Updating grid one the selected record with given id fro record
+                                                Ext.Ajax.request({///used for Updating grid one the selected record with given id fro record
                                                     url: 'process1.jsp?command=5',
                                                     params: { 
                                                         "t":select.get('RollNo'),
@@ -127,7 +127,7 @@
                                                     },
                                                     success:function()
                                                     {
-                                                        Wtf.Msg.alert('Status', 'Updated Successfully', function(btn, text){
+                                                        Ext.Msg.alert('Status', 'Updated Successfully', function(btn, text){
                                                             if (btn == 'ok'){
                                             
                                                                 this.grid2.store.load();
@@ -140,7 +140,7 @@
                                                     },
                                                     failure:function()
                                                     {
-                                                        Wtf.Msg.alert('failure');
+                                                        Ext.Msg.alert('failure');
                                                     } 
                
                                                 });
@@ -152,13 +152,13 @@
                                                 select.set('English',this.english.getValue());
                                                 select.endEdit();
                                                 this.close();
-                                                Wtf.Msg.alert('Record Updated');
+                                                Ext.Msg.alert('Record Updated');
                                                 this.hide();
                                             }
                            
                                             if(btnc=='grid1')////insertion operation in grid 1
                                             {
-                                                var temp = Wtf.data.Record.create([
+                                                var temp = Ext.data.Record.create([
                                                     'RollNo' ,'Marathi','Hindi','English' 
                                                 ]);
                         
@@ -173,7 +173,7 @@
                                      
                                                      
                                                 }));
-                                                Wtf.Ajax.request({
+                                                Ext.Ajax.request({
                                                     url: 'process1.jsp?command=2 ',
                                                     params: { 
                                                         "t1":this.Id.getValue(),
@@ -183,7 +183,7 @@
                                                     },
                                                     success:function()
                                                     {
-                                                        Wtf.Msg.alert('Status', 'Inserted Successful!y', function(btn, text){
+                                                        Ext.Msg.alert('Status', 'Inserted Successful!y', function(btn, text){
                                                             if (btn == 'ok'){
                                             
                                                                 this.grid1.store.load();
@@ -196,7 +196,7 @@
                                                     },
                                                     failure:function()
                                                     {
-                                                        Wtf.Msg.alert('failure');
+                                                        Ext.Msg.alert('failure');
                                                     } 
                
                                                 });
@@ -204,7 +204,7 @@
                                                 this.hide();
                                             }
                                             if(btnc=='grid2'){
-                                                var temp1 = Wtf.data.Record.create([
+                                                var temp1 = Ext.data.Record.create([
                                                     'RollNo' ,'Marathi','Hindi','English' 
                                                 ]);
                         
@@ -219,7 +219,7 @@
                                      
                                                      
                                                 }));
-                                                Wtf.Ajax.request({
+                                                Ext.Ajax.request({
                                                     url: 'process1.jsp?command=2',
                                                     params: { 
                                                         "t1":this.Id.getValue(),
@@ -229,7 +229,7 @@
                                                     },
                                                     success:function()
                                                     {
-                                                        Wtf.Msg.alert('Status', 'Inserted Successful!y ', function(btn, text){
+                                                        Ext.Msg.alert('Status', 'Inserted Successful!y ', function(btn, text){
                                                             if (btn == 'ok'){
                                             
                                                                 this.grid2.store.load();
@@ -243,7 +243,7 @@
                                                     },
                                                     failure:function()
                                                     {
-                                                        Wtf.Msg.alert('failure');
+                                                        Ext.Msg.alert('failure');
                                                     } 
                
                                                 });
@@ -263,9 +263,9 @@
               
                 }
                 
-                this.store2=new Wtf.data.Store({    //create store 
+                this.store2=new Ext.data.Store({    //create store 
                     url:'process1.jsp?command=1',
-                    reader: new Wtf.data.JsonReader({ 
+                    reader: new Ext.data.JsonReader({ 
                         root:'rows',
                         id:'RollNo'
          
@@ -282,9 +282,9 @@
                 
   
                 this.store2.load();//load store
-                this.sm = new Wtf.grid.CheckboxSelectionModel();
+                this.sm = new Ext.grid.CheckboxSelectionModel();
  
-                this.grid1 = new Wtf.customgrid({
+                this.grid1 = new Ext.customgrid({
                     store:  store2,
                     frame:true, 
                     width:500,
@@ -294,7 +294,7 @@
                     multiSelect:true,//to select one at a time
                     cls:'grids',
                     title:'Student mark database',
-                    cm: new Wtf.grid.ColumnModel([
+                    cm: new Ext.grid.ColumnModel([
                         sm,
                             
                         {
@@ -331,7 +331,7 @@
                                 function(){
                                 
                                 //    flag=true;
-                                this.w= new Wtf.Student({    //call to custome component over here
+                                this.w= new Ext.Student({    //call to custome component over here
                                     scope: this,  
                                     width:300,
                                     height:500,
@@ -358,14 +358,14 @@
                                 var select =this.grid1.getSelectionModel().getSelections();
                                 for (i=0;i< select.length;i++) {
                                     this.grid1.store.remove(select[i]);
-                                    Wtf.Ajax.request({
+                                    Ext.Ajax.request({
                                         url: 'process1.jsp?command=3',
                                         params: { 
                                             "rollno": select[i].get('RollNo')              ///used for deleting the selected record with given id fro record
                                         },
                                         success:function()
                                         {
-                                            Wtf.Msg.alert('Status', 'Deleted Successful!y', function(btn, text){
+                                            Ext.Msg.alert('Status', 'Deleted Successful!y', function(btn, text){
                                                 if (btn == 'ok'){
                                             
                                                     this.grid1.store.load();
@@ -377,7 +377,7 @@
                                         },
                                         failure:function()
                                         {
-                                            Wtf.Msg.alert('failure');
+                                            Ext.Msg.alert('failure');
                                         } 
                
                                     });
@@ -392,7 +392,7 @@
                             handler : 
                                 function(){
                                 //    flag=false;
-                                this.w= new Wtf.Student({
+                                this.w= new Ext.Student({
                                     scope : this
                                 });
                                 this.w.display();
@@ -410,7 +410,7 @@
                    
                                 if(select1.length  < 1)
                                 {
-                                    Wtf.Msg.alert('No records','Select Record First');
+                                    Ext.Msg.alert('No records','Select Record First');
                                 }
                                 else{
                                     //call 
@@ -430,9 +430,9 @@
                  
                  
            
-                this.store3=new Wtf.data.Store({    //create store 
+                this.store3=new Ext.data.Store({    //create store 
                     url:'process1.jsp?command=1',
-                    reader: new Wtf.data.JsonReader({ 
+                    reader: new Ext.data.JsonReader({ 
                         root:'rows',
                         id:'RollNo'
          
@@ -450,9 +450,9 @@
            
           
            
-                this.sm2 = new Wtf.grid.CheckboxSelectionModel();
+                this.sm2 = new Ext.grid.CheckboxSelectionModel();
  
-                this.grid2 = new Wtf.customgrid({
+                this.grid2 = new Ext.customgrid({
                     store:store3,
                     frame:true, 
                     width:500,
@@ -467,7 +467,7 @@
                     cls:'grids',
                     sm:   this.sm2,
                     title:'Studemt Mark database',
-                    cm: new Wtf.grid.ColumnModel([
+                    cm: new Ext.grid.ColumnModel([
                         this.sm2,
                             
                         {
@@ -503,7 +503,7 @@
                                 function(){
                                 
                                 //    flag=true;
-                                this.w= new Wtf.Student({    //call to custome component over here
+                                this.w= new Ext.Student({    //call to custome component over here
                                     scope: this,  
                                     width:300,
                                     height:500,
@@ -530,14 +530,14 @@
                                 var select =this.grid2.getSelectionModel().getSelections();
                                 for (i=0;i< select.length;i++) {
                                     this.grid2.store.remove(select[i]);
-                                    Wtf.Ajax.request({
+                                    Ext.Ajax.request({
                                         url: 'process1.jsp?command=3',
                                         params: { 
                                             "rollno": select[i].get('RollNo')              ///used for deleting the selected record with given id fro record
                                         },
                                         success:function()
                                         {
-                                            Wtf.Msg.alert('Status', 'Deleted Successful!y', function(btn, text){
+                                            Ext.Msg.alert('Status', 'Deleted Successful!y', function(btn, text){
                                                 if (btn == 'ok'){
                                             
                                                     this.grid1.store.load();
@@ -549,7 +549,7 @@
                                         },
                                         failure:function()
                                         {
-                                            Wtf.Msg.alert('failure');
+                                            Ext.Msg.alert('failure');
                                         } 
                
                                     });
@@ -563,7 +563,7 @@
                             handler : 
                                 function(){
                                 //    flag=false;
-                                this.w= new Wtf.Student({
+                                this.w= new Ext.Student({
                                     scope : this
                                 });
                                 this.w.display1();
@@ -580,7 +580,7 @@
                    
                                 if(select2.length  < 1)
                                 {
-                                    Wtf.Msg.alert('No records','Select Record First');
+                                    Ext.Msg.alert('No records','Select Record First');
                                 }
                                 else{
                                     //call 
@@ -598,12 +598,12 @@
                     ]
                 });
                 ///the movement code here
-                this.mright=new Wtf.Button({
+                this.mright=new Ext.Button({
                     text:'------------------------Move  Data Right------->>-----------',
                     scope:this,
                     handler:function(){
                         
-                        var temp = Wtf.data.Record.create([
+                        var temp = Ext.data.Record.create([
                             'RollNo',
                             'Marathi',
                             'Hindi',
@@ -629,12 +629,12 @@
                 }
             );
            
-                this.mleft=new Wtf.Button({
+                this.mleft=new Ext.Button({
                     text:'----------------<<--------Move  Data Left------------------',
                     scope:this,
                     handler:function(){
                         
-                        var temp = Wtf.data.Record.create([
+                        var temp = Ext.data.Record.create([
                             'RollNo',
                             'Marathi',
                             'Hindi',
@@ -660,7 +660,7 @@
                 }
             );
             
-                this.allright=new Wtf.Button({
+                this.allright=new Ext.Button({
                     text:'-------------------Move All Data Record Right----->>-------------',
 
                     width:300,
@@ -669,7 +669,7 @@
                     scope:this,
                     handler:function(){
                         var i=0;
-                        var temp = Wtf.data.Record.create([
+                        var temp = Ext.data.Record.create([
                             'RollNo',
                             'Marathi',
                             'Hindi',
@@ -705,7 +705,7 @@
             );
            
            
-                this.allleft=new Wtf.Button({
+                this.allleft=new Ext.Button({
                     text:'-------------<<------Move All Data Record Left------------------>',
                     width:300,
                     hight:200,
@@ -713,7 +713,7 @@
                     scope:this,
                     handler:function(){
                         var i=0;
-                        var temp = Wtf.data.Record.create([
+                        var temp = Ext.data.Record.create([
                             'RollNo',
                             'Marathi',
                             'Hindi',
@@ -749,7 +749,7 @@
             );
            
            
-                this.view=new Wtf.customview({
+                this.view=new Ext.customview({
                     layout:'border',
                    
                     renderTo:document.body,
